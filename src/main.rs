@@ -28,7 +28,7 @@ impl Render for HelloWorld {
             .child(
                 Button::new("toggle_fps")
                     .primary()
-                    .label("Toggle FPS")
+                    .label("Show FPS")
                     .on_click(cx.listener(|this, _, _, cx| {
                         this.show_fps = !this.show_fps;
                         cx.notify();
@@ -43,7 +43,7 @@ fn main() {
         gpui_kit::init(cx);
 
         gpui_kit::open_window(WindowOptions::default(), cx, |_, cx| {
-            cx.new(|_| HelloWorld { show_fps: true })
+            cx.new(|_| HelloWorld { show_fps: false })
         })
         .expect("Failed to open window");
     });
